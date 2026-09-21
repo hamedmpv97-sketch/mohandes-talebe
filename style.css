@@ -1,0 +1,2144 @@
+/* ============================================
+   تعریف فونت سفارشی ایران یکان
+   ============================================ */
+@font-face {
+  font-family: 'IRANYekanXFaNum';
+  src: url('fonts/IRANYekanXFaNum-Bold.woff2') format('woff2');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ============================================
+   تعریف فونت سفارشی فرناز (Far_Naskh)
+   ============================================ */
+@font-face {
+  font-family: 'Far_Naskh';
+  src: url('fonts/Far_Naskh.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ============================================
+   تعریف فونت سفارشی بی زر (B Zar)
+   ============================================ */
+@font-face {
+  font-family: 'B Zar';
+  src: url('fonts/B Zar_0.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ============================================
+   تعریف فونت سفارشی بی زر بولد (B Zar Bold)
+   ============================================ */
+@font-face {
+  font-family: 'B Zar Bold';
+  src: url('fonts/B Zar Bold_0.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ============================================
+   تعریف فونت سفارشی بی میترا بولد (B Mitra Bold)
+   ============================================ */
+@font-face {
+  font-family: 'B Mitra Bold';
+  src: url('fonts/B Mitra Bold_0.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ============================================
+   تعریف فونت سفارشی نیان بولد (Nian Bold)
+   ============================================ */
+@font-face {
+  font-family: 'Nian Bold';
+  src: url('fonts/Nian Bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ============================================
+   تعریف فونت سفارشی نیان اکسترا بولد (Nian ExtraBold)
+   ============================================ */
+@font-face {
+  font-family: 'Nian ExtraBold';
+  src: url('fonts/Nian ExtraBold.ttf') format('truetype');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ============================================
+   تعریف فونت نیان بولد (NianBold) — برای بخش دسترسی سریع
+   ============================================ */
+@font-face {
+  font-family: 'NianBold';
+  src: url('fonts/Nian Bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ============================================
+   تنظیمات کلی
+   ============================================ */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-tap-highlight-color: transparent;
+}
+
+:root {
+  --primary-color: #00796b;
+  --gray-color: #757575;
+  --bg-color: #ffffff;
+}
+
+body {
+  font-family: Tahoma, sans-serif;
+  background-color: #f5f5f5;
+  color: #333;
+  padding-bottom: 70px;
+  overflow-x: hidden;
+}
+
+/* ============================================
+   محتوای اصلی
+   ============================================ */
+.content {
+  padding: 20px;
+  text-align: center;
+  margin-top: 50px;
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* ============================================
+   نوار ناوبری پایین
+   ============================================ */
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 70px;
+  background-color: var(--bg-color);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-top: 1px solid #eeeeee;
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.05);
+  z-index: 1000;
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+.nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  color: var(--gray-color);
+  flex: 1;
+  height: 100%;
+  transition: color 0.2s ease;
+}
+
+.nav-item .material-symbols-outlined {
+  font-size: 26px;
+  margin-bottom: 2px;
+}
+
+.nav-label {
+  font-size: 11px;
+  font-weight: 500;
+  font-family: 'Nian Bold', Tahoma, sans-serif;
+}
+
+.nav-item.active {
+  color: var(--primary-color);
+}
+
+.nav-item:active {
+  background-color: #f0f0f0;
+}
+
+/* ============================================
+   پس‌زمینه تار (Overlay)
+   ============================================ */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  z-index: 1500;
+}
+
+.overlay.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* ============================================
+   منوی کشویی پایین (Bottom Sheet)
+   ============================================ */
+.bottom-sheet {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: #ffffff;
+  border-radius: 24px 24px 0 0;
+  transform: translateY(100%);
+  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 2000;
+  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.15);
+  padding-bottom: env(safe-area-inset-bottom);
+  max-height: 80vh;
+  overflow-y: auto;
+  font-family: 'IRANYekanXFaNum', Tahoma, sans-serif;
+}
+
+.bottom-sheet.show {
+  transform: translateY(0);
+}
+
+.sheet-handle {
+  width: 40px;
+  height: 4px;
+  background: #cccccc;
+  border-radius: 4px;
+  margin: 12px auto 8px;
+}
+
+.sheet-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 20px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.sheet-header h3 {
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+}
+
+.close-sheet {
+  cursor: pointer;
+  color: #757575;
+  padding: 4px;
+  border-radius: 50%;
+  transition: background 0.2s;
+}
+
+.close-sheet:active {
+  background: #f0f0f0;
+}
+
+.sheet-menu {
+  list-style: none;
+  padding: 8px 0 16px;
+}
+
+.sheet-item {
+  display: flex;
+  align-items: center;
+  padding: 14px 20px;
+  cursor: pointer;
+  transition: background 0.2s;
+  gap: 14px;
+}
+
+.sheet-item:active {
+  background: #f5f5f5;
+}
+
+.item-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: #e0f2f1;
+  color: #00796b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.item-icon .material-symbols-outlined {
+  font-size: 24px;
+}
+
+.item-text {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.item-title {
+  font-size: 15px;
+  font-weight: 600;
+  color: #222;
+}
+
+.item-desc {
+  font-size: 12px;
+  color: #888;
+}
+
+.arrow {
+  color: #bdbdbd;
+  font-size: 22px;
+}
+
+/* ============================================
+   صفحات اپ (دروس و جلسات و علاقمندی‌ها)
+   ============================================ */
+.app-page {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #f5f5f5;
+  z-index: 1100;
+  overflow-y: auto;
+  padding-bottom: 20px;
+  display: none;
+}
+
+.app-page.active {
+  display: block;
+}
+
+.page-header {
+  background: #00838f;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 20px;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.page-header h2 {
+  font-size: 24px;
+  font-weight: 800;
+  font-family: 'Nian ExtraBold', 'IRANYekanXFaNum', Tahoma, sans-serif;
+}
+
+.page-header .material-symbols-outlined {
+  cursor: pointer;
+  font-size: 24px;
+}
+
+/* ============================================
+   Wrapper پایه‌ها (فاصله از بالا و پایین)
+   ============================================ */
+.grades-wrapper {
+  padding: 20px 15px 30px;
+}
+
+/* ============================================
+   بخش پایه‌ها و کارت کتاب
+   ============================================ */
+.grade-section {
+  margin-bottom: 25px;
+  padding: 0;
+}
+
+.grade-section + .grade-section {
+  margin-top: 30px;
+}
+
+/* ============================================
+   باکس زیبای عنوان پایه
+   ============================================ */
+.grade-title {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 17px;
+  font-weight: bold;
+  color: #ffffff;
+  font-family: 'B Mitra Bold', 'Far_Naskh', Tahoma, sans-serif;
+  background: linear-gradient(135deg, #00838f 0%, #00acc1 100%);
+  padding: 10px 20px 10px 16px;
+  border-radius: 0 30px 30px 0;
+  box-shadow: 0 4px 12px rgba(0, 131, 143, 0.28);
+  margin: 0 0 15px 0;
+  position: relative;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.grade-title::before {
+  content: '';
+  position: absolute;
+  right: -1px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 5px;
+  height: 55%;
+  background: #ffd54f;
+  border-radius: 5px 0 0 5px;
+}
+
+.grade-title::after {
+  content: '';
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  background: #ffd54f;
+  border-radius: 50%;
+  box-shadow: 0 0 0 3px rgba(255, 213, 79, 0.3);
+}
+
+.grade-title:hover {
+  transform: translateX(-3px);
+  box-shadow: 0 6px 16px rgba(0, 131, 143, 0.4);
+}
+
+/* ============================================
+   اسکرول افقی کتاب‌ها
+   ============================================ */
+.books-scroll {
+  display: flex;
+  gap: 15px;
+  overflow-x: auto;
+  padding-bottom: 10px;
+  scrollbar-width: none;
+  direction: rtl;
+}
+
+.books-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.book-card {
+  flex: 0 0 100px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.book-card img {
+  width: 100px;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+  margin-bottom: 6px;
+  background: #ddd;
+  border: 1px solid #eee;
+  display: block;
+}
+
+.book-title {
+  font-size: 11px;
+  color: #555;
+  line-height: 1.4;
+  font-weight: 500;
+  font-family: 'B Zar Bold', 'B Zar', 'Far_Naskh', Tahoma, sans-serif;
+}
+
+/* ============================================
+   صفحه جلسات (به صورت کارت تصویری)
+   ============================================ */
+.sessions-list {
+  padding: 12px;
+}
+
+.session-card {
+  background: #ffffff;
+  border-radius: 14px;
+  margin-bottom: 10px;
+  padding: 12px;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.06);
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  border: 1px solid #f0f0f0;
+}
+
+.session-card:active {
+  transform: scale(0.98);
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.1);
+}
+
+.session-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  gap: 12px;
+}
+
+.session-card-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 6px;
+  padding: 2px 0;
+}
+
+.session-card-title {
+  font-size: 19px;
+  font-weight: bold;
+  color: #222;
+  line-height: 1.5;
+  font-family: 'B Mitra Bold', 'B Zar', 'Far_Naskh', Tahoma, sans-serif;
+}
+
+.session-card-image {
+  width: 80px;
+  height: 110px;
+  object-fit: cover;
+  border-radius: 6px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  flex-shrink: 0;
+  background: #eee;
+  border: 1px solid #eee;
+}
+
+.stat-item {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 12px;
+  color: #00838f;
+  cursor: pointer;
+}
+
+.stat-item .material-symbols-outlined {
+  font-size: 20px;
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+  transition: color 0.2s, font-variation-settings 0.2s;
+}
+
+.stat-item.active-fav .material-symbols-outlined,
+.favorite-btn .material-symbols-outlined[style*="'FILL' 1"] {
+  color: #e91e63;
+}
+
+/* ============================================
+   پلیر داخلی
+   ============================================ */
+.player-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.9);
+  z-index: 3000;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  direction: rtl;
+}
+
+.player-overlay.show {
+  display: flex;
+}
+
+.player-container {
+  width: 95%;
+  max-width: 600px;
+  background: #1e1e1e;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.player-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  background: #2a2a2a;
+  color: #fff;
+}
+
+.player-header h3 {
+  font-size: 16px;
+  font-family: 'B Mitra Bold', Tahoma, sans-serif;
+  margin: 0;
+}
+
+.close-player {
+  cursor: pointer;
+  color: #fff;
+  font-size: 24px;
+}
+
+.player-video-wrapper {
+  width: 100%;
+  background: #000;
+  display: flex;
+  justify-content: center;
+}
+
+#videoPlayer {
+  width: 100%;
+  max-height: 60vh;
+  outline: none;
+}
+
+.player-actions {
+  padding: 16px;
+  display: flex;
+  justify-content: center;
+  background: #2a2a2a;
+}
+
+.download-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #00796b;
+  color: #fff;
+  border: none;
+  padding: 10px 24px;
+  border-radius: 30px;
+  font-family: 'Nian Bold', Tahoma, sans-serif;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.download-btn:hover {
+  background: #00695c;
+}
+
+.download-btn .material-symbols-outlined {
+  font-size: 20px;
+}
+
+/* ============================================
+   صفحه دانلودها
+   ============================================ */
+.download-info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.download-book-title {
+  font-size: 12px;
+  color: #888;
+  font-family: 'B Zar', Tahoma, sans-serif;
+}
+
+.play-btn .material-symbols-outlined {
+  color: #00796b;
+  font-size: 24px;
+}
+
+/* ============================================
+   صفحه مقالات
+   ============================================ */
+.articles-list {
+  padding: 15px;
+}
+
+.article-category-card {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 16px;
+  margin-bottom: 12px;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.06);
+  border: 1px solid #f0f0f0;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.article-category-card:active {
+  transform: scale(0.98);
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.1);
+}
+
+.article-category-icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.article-category-icon .material-symbols-outlined {
+  font-size: 28px;
+}
+
+.article-category-text {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.article-category-text h4 {
+  font-size: 16px;
+  font-weight: bold;
+  color: #222;
+  font-family: 'B Mitra Bold', 'B Zar', Tahoma, sans-serif;
+  margin: 0;
+}
+
+.article-category-text span {
+  font-size: 12px;
+  color: #888;
+  font-family: 'B Zar', Tahoma, sans-serif;
+}
+
+/* ============================================
+   محتوای مقاله (لیست موضوعات)
+   ============================================ */
+.article-content {
+  padding: 15px;
+}
+
+.article-item {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 14px;
+  margin-bottom: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  border: 1px solid #f0f0f0;
+}
+
+.article-item-number {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-family: 'Nian Bold', Tahoma, sans-serif;
+  font-size: 14px;
+}
+
+.article-item-text {
+  flex: 1;
+}
+
+.article-item-text h4 {
+  font-size: 15px;
+  font-weight: bold;
+  color: #222;
+  margin-bottom: 4px;
+  font-family: 'B Mitra Bold', 'B Zar', Tahoma, sans-serif;
+}
+
+.article-item-text p {
+  font-size: 13px;
+  color: #666;
+  line-height: 1.6;
+  font-family: 'B Zar', Tahoma, sans-serif;
+  margin: 0;
+}
+
+/* ============================================
+   استایل‌های پلیر حرفه‌ای جدید
+   ============================================ */
+.player-container {
+  width: 95%;
+  max-width: 600px;
+  background: #1e1e1e;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+  display: flex;
+  flex-direction: column;
+}
+
+.player-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 18px;
+  background: #2a2a2a;
+  color: #fff;
+  border-bottom: 1px solid #333;
+}
+
+.player-header h3 {
+  font-size: 15px;
+  font-family: 'B Mitra Bold', Tahoma, sans-serif;
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 70%;
+}
+
+.close-player {
+  cursor: pointer;
+  color: #fff;
+  font-size: 24px;
+  transition: transform 0.2s;
+}
+.close-player:active {
+  transform: scale(0.9);
+}
+
+.player-stage {
+  position: relative;
+  width: 100%;
+  background: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 200px;
+  max-height: 60vh;
+}
+
+#videoPlayer {
+  width: 100%;
+  max-height: 60vh;
+  outline: none;
+  display: block;
+}
+
+.audio-stage {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 30px 20px;
+  background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+  width: 100%;
+  min-height: 240px;
+}
+
+.audio-artwork {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid #00796b;
+  box-shadow: 0 8px 24px rgba(0, 121, 107, 0.4);
+  margin-bottom: 20px;
+  animation: spin-slow 20s linear infinite;
+}
+
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.audio-bars {
+  display: flex;
+  align-items: flex-end;
+  gap: 5px;
+  height: 40px;
+}
+
+.audio-bars span {
+  display: block;
+  width: 5px;
+  background: #00796b;
+  border-radius: 3px;
+  animation: bar-bounce 1.2s ease-in-out infinite;
+}
+
+.audio-bars span:nth-child(1) { height: 20px; animation-delay: 0s; }
+.audio-bars span:nth-child(2) { height: 35px; animation-delay: 0.2s; }
+.audio-bars span:nth-child(3) { height: 25px; animation-delay: 0.4s; }
+.audio-bars span:nth-child(4) { height: 40px; animation-delay: 0.1s; }
+.audio-bars span:nth-child(5) { height: 30px; animation-delay: 0.3s; }
+
+@keyframes bar-bounce {
+  0%, 100% { transform: scaleY(1); }
+  50% { transform: scaleY(0.5); }
+}
+
+/* کنترل‌های پلیر */
+.player-controls {
+  padding: 12px 16px 8px;
+  background: #2a2a2a;
+  color: #fff;
+  position: relative;
+}
+
+.speed-menu {
+  position: absolute;
+  bottom: 100%;
+  right: 20px;
+  background: #333;
+  border-radius: 10px;
+  padding: 8px 0;
+  display: none;
+  flex-direction: column;
+  min-width: 70px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+  z-index: 10;
+}
+.speed-menu.show {
+  display: flex;
+}
+.speed-menu button {
+  background: transparent;
+  border: none;
+  color: #fff;
+  padding: 8px 16px;
+  font-size: 14px;
+  cursor: pointer;
+  text-align: center;
+  transition: background 0.2s;
+}
+.speed-menu button:hover {
+  background: #444;
+}
+
+.progress-wrap {
+  padding: 8px 0;
+  cursor: pointer;
+}
+.progress-track {
+  height: 6px;
+  background: #444;
+  border-radius: 3px;
+  position: relative;
+  overflow: hidden;
+}
+.progress-buffer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  background: #666;
+  border-radius: 3px;
+  width: 0;
+  transition: width 0.2s;
+}
+.progress-played {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  background: #00796b;
+  border-radius: 3px;
+  width: 0;
+  transition: width 0.1s;
+}
+
+.time-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  color: #aaa;
+  padding: 0 2px 6px;
+  font-family: 'Nian Bold', Tahoma, sans-serif;
+}
+
+.control-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 4px 0;
+}
+
+.ctrl-group {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.ctrl-btn {
+  background: transparent;
+  border: none;
+  color: #fff;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.1s;
+  font-family: 'Nian Bold', Tahoma, sans-serif;
+  font-size: 14px;
+}
+.ctrl-btn:hover {
+  background: #3a3a3a;
+}
+.ctrl-btn:active {
+  transform: scale(0.9);
+}
+.ctrl-btn.main {
+  background: #00796b;
+  width: 48px;
+  height: 48px;
+}
+.ctrl-btn.main .material-symbols-outlined {
+  font-size: 30px;
+}
+.ctrl-btn .material-symbols-outlined {
+  font-size: 24px;
+}
+
+.player-actions {
+  padding: 12px 16px;
+  display: flex;
+  justify-content: center;
+  background: #2a2a2a;
+  border-top: 1px solid #333;
+}
+
+.download-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #00796b;
+  color: #fff;
+  border: none;
+  padding: 10px 28px;
+  border-radius: 30px;
+  font-family: 'Nian Bold', Tahoma, sans-serif;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.1s;
+}
+.download-btn:hover {
+  background: #00695c;
+}
+.download-btn:active {
+  transform: scale(0.97);
+}
+.download-btn .material-symbols-outlined {
+  font-size: 20px;
+}
+
+.player-toast {
+  position: absolute;
+  bottom: 80px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0,0,0,0.8);
+  color: #fff;
+  padding: 8px 20px;
+  border-radius: 30px;
+  font-size: 13px;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s;
+  pointer-events: none;
+  white-space: nowrap;
+  font-family: 'Nian Bold', Tahoma, sans-serif;
+}
+.player-toast.show {
+  opacity: 1;
+  visibility: visible;
+  bottom: 90px;
+}
+
+@media (max-width: 480px) {
+  .desktop-only {
+    display: none;
+  }
+}
+
+/* ============================================
+   صفحه جستجو
+   ============================================ */
+.search-wrapper {
+  padding: 15px;
+}
+
+.search-input-box {
+  display: flex;
+  align-items: center;
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 12px 14px;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.06);
+  border: 1px solid #f0f0f0;
+  gap: 10px;
+  transition: box-shadow 0.2s, border-color 0.2s;
+}
+
+.search-input-box:focus-within {
+  border-color: #00838f;
+  box-shadow: 0 3px 14px rgba(0, 131, 143, 0.15);
+}
+
+.search-input-box .search-icon-left {
+  color: #00838f;
+  font-size: 24px;
+  flex-shrink: 0;
+}
+
+.search-input-box input {
+  flex: 1;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-family: 'B Zar', 'Far_Naskh', Tahoma, sans-serif;
+  font-size: 16px;
+  color: #222;
+  padding: 2px 4px;
+  direction: rtl;
+}
+
+.search-input-box input::placeholder {
+  color: #aaa;
+  font-family: 'B Zar', Tahoma, sans-serif;
+}
+
+.clear-search {
+  color: #999;
+  font-size: 20px;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.clear-search:active {
+  background: #f0f0f0;
+}
+
+/* تب‌های فیلتر */
+.search-tabs {
+  display: flex;
+  gap: 8px;
+  margin: 14px 0 10px;
+  padding: 0 2px;
+}
+
+.search-tab {
+  flex: 1;
+  background: #ffffff;
+  border: 1px solid #e8e8e8;
+  color: #666;
+  padding: 9px 12px;
+  border-radius: 10px;
+  font-family: 'Nian Bold', 'B Zar', Tahoma, sans-serif;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.search-tab:active {
+  transform: scale(0.97);
+}
+
+.search-tab.active {
+  background: linear-gradient(135deg, #00838f 0%, #00acc1 100%);
+  color: #ffffff;
+  border-color: transparent;
+  box-shadow: 0 3px 10px rgba(0, 131, 143, 0.3);
+}
+
+/* نتایج */
+.search-results {
+  padding-bottom: 30px;
+}
+
+.search-empty {
+  text-align: center;
+  color: #999;
+  padding: 40px 20px;
+  font-family: 'B Zar', Tahoma, sans-serif;
+  font-size: 14px;
+}
+
+.search-section-header {
+  font-family: 'B Mitra Bold', 'B Zar', Tahoma, sans-serif;
+  font-size: 14px;
+  color: #00838f;
+  padding: 14px 6px 8px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.search-section-header::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(to left, #00838f, transparent);
+}
+
+.search-result-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 10px 12px;
+  margin-bottom: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  border: 1px solid #f0f0f0;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.search-result-card:active {
+  transform: scale(0.98);
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+}
+
+.search-result-image {
+  width: 44px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 6px;
+  flex-shrink: 0;
+  background: #eee;
+  border: 1px solid #eee;
+}
+
+.search-result-article-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  background: #e0f2f1;
+  color: #00796b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.search-result-article-icon .material-symbols-outlined {
+  font-size: 24px;
+}
+
+.search-result-info {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.search-result-info h4 {
+  font-family: 'B Mitra Bold', 'B Zar', Tahoma, sans-serif;
+  font-size: 15px;
+  font-weight: bold;
+  color: #222;
+  margin: 0;
+  line-height: 1.4;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.search-result-sub {
+  font-family: 'B Zar', Tahoma, sans-serif;
+  font-size: 12px;
+  color: #888;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.search-result-icon {
+  color: #00838f;
+  font-size: 26px;
+  flex-shrink: 0;
+}
+
+/* ============================================
+   بخش دانلودها — هدر و دکمه حذف
+   ============================================ */
+.downloads-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #ffffff;
+  padding: 12px 14px;
+  margin-bottom: 12px;
+  border-radius: 12px;
+  border: 1px solid #f0f0f0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.downloads-count {
+  font-family: 'Nian Bold', 'B Zar', Tahoma, sans-serif;
+  font-size: 13px;
+  color: #00838f;
+  font-weight: bold;
+}
+
+.clear-all-btn {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  background: #ffebee;
+  color: #c62828;
+  border: none;
+  padding: 7px 12px;
+  border-radius: 20px;
+  font-family: 'Nian Bold', 'B Zar', Tahoma, sans-serif;
+  font-size: 12px;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.1s;
+}
+
+.clear-all-btn:active {
+  transform: scale(0.95);
+  background: #ffcdd2;
+}
+
+.clear-all-btn .material-symbols-outlined {
+  font-size: 18px;
+}
+
+.download-card-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 4px;
+  gap: 8px;
+}
+
+.delete-download-btn {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background: #fff3f3;
+  color: #e53935;
+  border: 1px solid #ffcdd2;
+  padding: 5px 10px;
+  border-radius: 16px;
+  font-family: 'Nian Bold', 'B Zar', Tahoma, sans-serif;
+  font-size: 12px;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.1s;
+}
+
+.delete-download-btn:active {
+  transform: scale(0.93);
+  background: #ffcdd2;
+}
+
+.delete-download-btn .material-symbols-outlined {
+  font-size: 16px;
+  font-variation-settings: 'FILL' 0, 'wght' 500;
+}
+
+.downloads-empty {
+  text-align: center;
+  padding: 50px 20px;
+  color: #999;
+  font-family: 'B Zar', Tahoma, sans-serif;
+  font-size: 14px;
+}
+
+.downloads-empty .material-symbols-outlined {
+  font-size: 60px;
+  display: block;
+  margin: 0 auto 12px;
+  color: #ccc;
+}
+
+/* ============================================
+   صفحه دوره‌ها
+   ============================================ */
+.courses-wrapper {
+  padding: 15px;
+}
+
+.course-card {
+  display: flex;
+  gap: 14px;
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 14px;
+  margin-bottom: 14px;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.06);
+  border: 1px solid #f0f0f0;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.course-card:active {
+  transform: scale(0.98);
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.1);
+}
+
+.course-card-image {
+  width: 100px;
+  height: 130px;
+  object-fit: cover;
+  border-radius: 10px;
+  flex-shrink: 0;
+  background: #eee;
+  border: 1px solid #eee;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
+}
+
+.course-card-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 6px;
+  min-width: 0;
+}
+
+.course-card-title {
+  font-family: 'B Mitra Bold', 'B Zar', Tahoma, sans-serif;
+  font-size: 18px;
+  font-weight: bold;
+  color: #222;
+  margin: 0;
+  line-height: 1.4;
+}
+
+.course-card-desc {
+  font-family: 'B Zar', Tahoma, sans-serif;
+  font-size: 12px;
+  color: #777;
+  line-height: 1.6;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.course-card-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 2px;
+}
+
+.course-meta-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  background: #e0f2f1;
+  color: #00796b;
+  font-family: 'Nian Bold', 'B Zar', Tahoma, sans-serif;
+  font-size: 10px;
+  padding: 3px 8px;
+  border-radius: 10px;
+  white-space: nowrap;
+}
+
+.course-meta-badge .material-symbols-outlined {
+  font-size: 14px;
+}
+
+/* ============================================
+   صفحه جزئیات دوره
+   ============================================ */
+.course-detail-wrapper {
+  padding: 15px 15px 30px;
+}
+
+.course-detail-header {
+  display: flex;
+  gap: 14px;
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 14px;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.06);
+  border: 1px solid #f0f0f0;
+  margin-bottom: 14px;
+}
+
+.course-detail-image {
+  width: 110px;
+  height: 145px;
+  object-fit: cover;
+  border-radius: 10px;
+  flex-shrink: 0;
+  background: #eee;
+  border: 1px solid #eee;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+}
+
+.course-detail-header-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 0;
+}
+
+.course-detail-name {
+  font-family: 'B Mitra Bold', 'B Zar', Tahoma, sans-serif;
+  font-size: 20px;
+  font-weight: bold;
+  color: #222;
+  margin: 0;
+  line-height: 1.4;
+}
+
+.course-detail-description {
+  font-family: 'B Zar', Tahoma, sans-serif;
+  font-size: 13px;
+  color: #666;
+  line-height: 1.7;
+  margin: 0;
+}
+
+.course-info-card {
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 14px;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.06);
+  border: 1px solid #f0f0f0;
+  margin-bottom: 14px;
+}
+
+.course-info-card-title {
+  font-family: 'B Mitra Bold', 'B Zar', Tahoma, sans-serif;
+  font-size: 14px;
+  font-weight: bold;
+  color: #00838f;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #f0f0f0;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.course-info-card-title .material-symbols-outlined {
+  font-size: 20px;
+}
+
+.course-info-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 8px 0;
+  font-family: 'B Zar', Tahoma, sans-serif;
+  font-size: 13px;
+  color: #333;
+  border-bottom: 1px dashed #f0f0f0;
+}
+
+.course-info-row:last-child {
+  border-bottom: none;
+}
+
+.course-info-row .material-symbols-outlined {
+  color: #00838f;
+  font-size: 20px;
+  flex-shrink: 0;
+}
+
+.course-info-row-label {
+  font-family: 'Nian Bold', 'B Zar', Tahoma, sans-serif;
+  color: #777;
+  min-width: 90px;
+  flex-shrink: 0;
+}
+
+.course-info-row-value {
+  flex: 1;
+  color: #222;
+  font-family: 'B Mitra Bold', 'B Zar', Tahoma, sans-serif;
+  font-weight: bold;
+  line-height: 1.6;
+  word-break: break-word;
+}
+
+.course-start-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  background: linear-gradient(135deg, #00838f 0%, #00acc1 100%);
+  color: #ffffff;
+  border: none;
+  padding: 14px;
+  border-radius: 14px;
+  font-family: 'Nian Bold', 'B Zar', Tahoma, sans-serif;
+  font-size: 15px;
+  cursor: pointer;
+  margin-bottom: 14px;
+  box-shadow: 0 4px 14px rgba(0, 131, 143, 0.3);
+  transition: transform 0.1s, box-shadow 0.2s;
+}
+
+.course-start-btn:active {
+  transform: scale(0.98);
+  box-shadow: 0 2px 8px rgba(0, 131, 143, 0.4);
+}
+
+.course-start-btn .material-symbols-outlined {
+  font-size: 22px;
+}
+
+.course-sessions-title {
+  font-family: 'B Mitra Bold', 'B Zar', Tahoma, sans-serif;
+  font-size: 15px;
+  font-weight: bold;
+  color: #222;
+  padding: 12px 4px 10px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.course-sessions-title .material-symbols-outlined {
+  color: #00838f;
+  font-size: 22px;
+}
+
+/* ============================================
+   بنرهای پویا - کاروسل چرخشی
+   ============================================ */
+.banners-wrapper {
+  padding: 15px;
+  position: relative;
+}
+
+.banners-loading,
+.banners-empty {
+  text-align: center;
+  color: #888;
+  padding: 40px 20px;
+  font-family: 'B Zar', Tahoma, sans-serif;
+  font-size: 14px;
+}
+
+.banner-carousel {
+  position: relative;
+  width: 100%;
+  max-width: 320px;
+  margin: 0 auto;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
+  background: #fff;
+}
+
+.banner-track {
+  display: flex;
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  direction: ltr;
+  will-change: transform;
+}
+
+.banner-slide {
+  flex: 0 0 100%;
+  display: block;
+  text-decoration: none;
+  position: relative;
+}
+
+.banner-slide img {
+  display: block;
+  width: 100%;
+  height: 130px;
+  object-fit: cover;
+  background: #f5f5f5;
+}
+
+.banner-slide:active img {
+  opacity: 0.9;
+}
+
+.banner-dots {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 0;
+  background: rgba(255, 255, 255, 0.95);
+}
+
+.banner-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #cccccc;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.3s, width 0.3s;
+}
+
+.banner-dot.active {
+  background: #00838f;
+  width: 18px;
+  border-radius: 4px;
+}
+
+/* ============================================
+   اسپلش اسکرین (Splash Screen)
+   ============================================ */
+.splash-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  transition: opacity 0.6s ease, visibility 0.6s ease;
+}
+
+.splash-screen.hide {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.splash-image {
+  max-width: 220px;
+  max-height: 220px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  margin-bottom: 25px;
+  animation: splashPulse 2s infinite ease-in-out;
+}
+
+.splash-loader {
+  width: 36px;
+  height: 36px;
+  border: 3px solid #e0e0e0;
+  border-top: 3px solid #00796b;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes splashPulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.04); }
+}
+
+/* ============================================
+   Home Container
+   ============================================ */
+.home-container {
+  padding: 12px;
+  direction: rtl;
+}
+
+.section-title {
+  font-weight: bold;
+  font-size: 1.05rem;
+  margin: 16px 0 10px 0;
+  color: #333;
+}
+
+/* Continue Learning Card */
+.continue-card {
+  background: linear-gradient(135deg, #0d6efd, #004085);
+  color: #fff;
+  border-radius: 16px;
+  padding: 14px;
+  box-shadow: 0 4px 15px rgba(13, 110, 253, 0.25);
+  margin-bottom: 16px;
+}
+
+.continue-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.8rem;
+  opacity: 0.9;
+  margin-bottom: 8px;
+}
+
+.continue-body {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.continue-title {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.continue-sub {
+  margin: 4px 0 0 0;
+  font-size: 0.8rem;
+  opacity: 0.8;
+}
+
+.continue-btn {
+  background: #fff;
+  color: #0d6efd;
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+.progress-bar-bg {
+  background: rgba(255, 255, 255, 0.2);
+  height: 6px;
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.progress-bar-fill {
+  background: #00f2fe;
+  height: 100%;
+}
+
+/* Quick Action Grid */
+.quick-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
+.quick-item {
+  background: #fff;
+  border-radius: 12px;
+  padding: 12px 6px;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.quick-item:active {
+  transform: scale(0.96);
+}
+
+.quick-icon {
+  font-size: 1.4rem;
+  color: #0d6efd;
+  margin-bottom: 6px;
+}
+
+.quick-item span {
+  font-size: 0.78rem;
+  color: #444;
+  display: block;
+}
+
+/* ============================================
+   بنر داخل پلیر (بالای هدر پلیر)
+   ============================================ */
+.player-banner {
+  width: 100%;
+  display: block;
+  line-height: 0;
+  background: #000;
+  border-bottom: 1px solid #333;
+  position: relative;
+}
+
+.player-banner a {
+  display: block;
+  width: 100%;
+  text-decoration: none;
+  position: relative;
+}
+
+.player-banner img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+.player-banner:active img {
+  opacity: 0.9;
+}
+
+/* ============================================
+   Custom Banner Card - روش دوم
+   ============================================ */
+.custom-banner-card {
+  width: 90%;
+  margin: 0 auto 16px auto;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  background: #fff;
+}
+
+.custom-banner-card a {
+  display: block;
+  width: 100%;
+  height: 100%;
+  text-decoration: none;
+}
+
+.custom-banner-img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* ============================================
+   بخش دسترسی سریع جدید (Quick Access Section)
+   ============================================ */
+.quick-access-section {
+  width: 100%;
+  margin: 20px 0;
+  font-family: inherit;
+}
+
+.quick-access-title {
+  font-family: 'NianBold', Tahoma, sans-serif !important;
+  text-align: center;
+  font-size: 1.1rem;
+  font-weight: bold;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.quick-access-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  gap: 12px;
+  padding: 0 10px;
+}
+
+.quick-access-card {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 15px 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.quick-access-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+}
+
+.quick-access-icon {
+  width: 32px;
+  height: 32px;
+  color: #0066ff;
+  margin-bottom: 8px;
+}
+
+.quick-access-icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.quick-access-text {
+  font-family: 'NianBold', Tahoma, sans-serif !important;
+  font-size: 0.8rem;
+  color: #444;
+  text-align: center;
+  line-height: 1.4;
+}
+
+/* ============================================
+   حالت مخفی شدن کنترل‌ها
+   ============================================ */
+.player-header,
+.player-controls {
+  transition: opacity 0.35s ease, visibility 0.35s ease;
+}
+
+.player-container.controls-hidden .player-header,
+.player-container.controls-hidden .player-controls {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+/* ============================================
+   فول‌اسکرین واقعی - ویدیو/صوت کل صفحه رو پر کنه
+   ============================================ */
+:fullscreen .player-container,
+:-webkit-full-screen .player-container {
+  width: 100vw !important;
+  height: 100vh !important;
+  max-width: 100vw !important;
+  max-height: 100vh !important;
+  border-radius: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  display: block !important;      /* خیلی مهم */
+  position: relative !important;
+  background: #000 !important;
+  overflow: hidden !important;
+}
+
+/* بنر بالای پلیر در فول‌اسکرین مخفی */
+:fullscreen .player-banner,
+:-webkit-full-screen .player-banner {
+  display: none !important;
+}
+
+/* استیج: کل صفحه */
+:fullscreen .player-stage,
+:-webkit-full-screen .player-stage {
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  max-height: 100% !important;
+  min-height: 0 !important;
+  background: #000 !important;
+  z-index: 1 !important;
+}
+
+/* ویدیو: کل صفحه */
+:fullscreen #videoPlayer,
+:-webkit-full-screen #videoPlayer,
+#videoPlayer:-webkit-full-screen {
+  width: 100% !important;
+  height: 100% !important;
+  max-width: 100% !important;
+  max-height: 100% !important;
+  object-fit: contain !important;
+  background: #000 !important;
+}
+
+/* استیج صوتی در فول‌اسکرین */
+:fullscreen .audio-stage,
+:-webkit-full-screen .audio-stage {
+  width: 100% !important;
+  height: 100% !important;
+  min-height: 100% !important;
+  max-height: 100% !important;
+  background: linear-gradient(135deg, #0a0a0a 0%, #1e1e1e 100%) !important;
+}
+
+/* هدر پلیر روی ویدیو شناور */
+:fullscreen .player-header,
+:-webkit-full-screen .player-header {
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  z-index: 10 !important;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.85), transparent) !important;
+  border-bottom: none !important;
+}
+
+/* کنترل‌ها روی ویدیو شناور */
+:fullscreen .player-controls,
+:-webkit-full-screen .player-controls {
+  position: absolute !important;
+  bottom: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  z-index: 10 !important;
+  background: linear-gradient(to top, rgba(0,0,0,0.92), transparent) !important;
+  padding-bottom: env(safe-area-inset-bottom, 12px) !important;
+}
+
+/* در فول‌اسکرین، منوی سرعت بالاتر از همه چیز */
+:fullscreen .speed-menu,
+:-webkit-full-screen .speed-menu {
+  z-index: 20 !important;
+}
+
+/* ============================================
+   دکمه دانلود روی کارت جلسه
+   ============================================ */
+.session-card-actions {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: 2px;
+}
+
+.download-btn-session {
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  color: #00838f;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.2s, transform 0.1s;
+  font-family: inherit;
+}
+
+.download-btn-session .material-symbols-outlined {
+  font-size: 22px;
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+  transition: color 0.2s, font-variation-settings 0.2s;
+}
+
+.download-btn-session:hover {
+  color: #00695c;
+}
+
+.download-btn-session:active {
+  transform: scale(0.88);
+}
+
+.download-btn-session:disabled {
+  cursor: wait;
+  opacity: 0.8;
+}
+
+/* حالت در حال دانلود */
+.download-btn-session.downloading .material-symbols-outlined {
+  animation: spin 0.9s linear infinite;
+  color: #ffa726;
+}
+
+/* حالت دانلود شده */
+.download-btn-session.downloaded {
+  color: #43a047;
+}
+
+.download-btn-session.downloaded .material-symbols-outlined {
+  font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+}

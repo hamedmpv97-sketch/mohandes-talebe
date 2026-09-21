@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>مهندس طلبه</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ===== اسپلش اسکرین ===== -->
+  <div class="splash-screen" id="splashScreen">
+    <img src="splash.png" alt="مهندس طلبه" class="splash-image">
+    <div class="splash-loader"></div>
+  </div>
+
+  <!-- ===== صفحه اصلی ===== -->
+  <main class="content" id="mainContent">
+
+    <!-- Main Home Content Container -->
+    <div class="home-container">
+
+      <!-- 👇 بنر تغییر عادت 👇 -->
+      <div class="custom-banner-card">
+        <a href="https://onlinehawzah.com/habit/" target="_blank" rel="noopener noreferrer">
+          <img src="https://dl2.onlinehawzah.com/hamed/gif/baner01.gif" alt="بنر تغییر عادت" class="custom-banner-img">
+        </a>
+      </div>
+
+      <!-- 👇 بنر سلامت و کم خوری 👇 -->
+      <div class="custom-banner-card">
+        <a href="https://onlinehawzah.com/health/" target="_blank" rel="noopener noreferrer">
+          <img src="https://dl2.onlinehawzah.com/hamed/gif/kamkhori.jpg" alt="بنر سلامت و کم خوری" class="custom-banner-img">
+        </a>
+      </div>
+
+      <!-- 1. Continue Learning Card -->
+      <div class="continue-card" id="continueLearningCard">
+        <div class="continue-header">
+          <span class="continue-badge">▶ ادامه یادگیری</span>
+          <span class="continue-progress-text">۴۵٪</span>
+        </div>
+        <div class="continue-body">
+          <div class="continue-info">
+            <h3 class="continue-title">جلسه ۵ - منطق مظفر</h3>
+            <p class="continue-sub">زمان باقی‌مانده: ۱۰ دقیقه</p>
+          </div>
+          <button class="continue-btn" onclick="resumeLastLesson()">
+            <i class="fas fa-play"></i>
+          </button>
+        </div>
+        <div class="progress-bar-bg">
+          <div class="progress-bar-fill" style="width: 45%;"></div>
+        </div>
+      </div>
+
+      <!-- بخش دسترسی سریع -->
+      <div class="quick-access-section">
+        <h2 class="quick-access-title">دسترسی سریع</h2>
+        <div class="quick-access-grid">
+
+          <!-- ۱. آخرین درسی که گوش کرده اید -->
+          <a href="javascript:void(0)" id="btn-last-lesson" class="quick-access-card">
+            <div class="quick-access-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/>
+              </svg>
+            </div>
+            <span class="quick-access-text">آخرین درسی که گوش کرده اید</span>
+          </a>
+
+          <!-- ۲. آخرین دوره ای که دیده اید -->
+          <a href="javascript:void(0)" id="btn-last-course" class="quick-access-card">
+            <div class="quick-access-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M21 3H3c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h5v2h8v-2h5c1.1 0 1.99-.9 1.99-2L23 5c0-1.1-.9-2-2-2zm0 14H3V5h18v12zM10 8v8l6-4-6-4z"/>
+              </svg>
+            </div>
+            <span class="quick-access-text">آخرین دوره ای که دیده اید</span>
+          </a>
+
+          <!-- ۳. آخرین مقاله ای که خوانده اید -->
+          <a href="javascript:void(0)" id="btn-last-article" class="quick-access-card">
+            <div class="quick-access-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/>
+              </svg>
+            </div>
+            <span class="quick-access-text">آخرین مقاله ای که خوانده اید</span>
+          </a>
+
+        </div>
+      </div>
+
+    </div>
+    <!-- /Main Home Content Container -->
+
+  </main>
+
+  <section id="lessons-page" class="app-page">
+    <header class="page-header">
+      <span class="material-symbols-outlined back-btn" id="backToHome">arrow_forward</span>
+      <h2>مهندس طلبه</h2>
+      <span class="material-symbols-outlined open-search-btn">search</span>
+    </header>
+    <div class="grades-wrapper" id="gradesWrapper"></div>
+  </section>
+
+  <section id="sessions-page" class="app-page">
+    <header class="page-header">
+      <span class="material-symbols-outlined back-btn" id="backToLessons">arrow_forward</span>
+      <h2 id="sessionPageTitle">نام درس</h2>
+      <span class="material-symbols-outlined open-search-btn">search</span>
+    </header>
+    <div class="sessions-list" id="sessionsList"></div>
+  </section>
+
+  <section id="favorites-page" class="app-page">
+    <header class="page-header">
+      <span class="material-symbols-outlined back-btn" id="backToHomeFromFav">arrow_forward</span>
+      <h2>علاقمندی‌های من</h2>
+      <span class="material-symbols-outlined open-search-btn">search</span>
+    </header>
+    <div class="sessions-list" id="favoritesList"></div>
+  </section>
+
+  <section id="downloads-page" class="app-page">
+    <header class="page-header">
+      <span class="material-symbols-outlined back-btn" id="backToHomeFromDownloads">arrow_forward</span>
+      <h2>دانلودهای من</h2>
+      <span class="material-symbols-outlined open-search-btn">search</span>
+    </header>
+    <div class="sessions-list" id="downloadsList"></div>
+  </section>
+
+  <section id="articles-page" class="app-page">
+    <header class="page-header">
+      <span class="material-symbols-outlined back-btn" id="backToHomeFromArticles">arrow_forward</span>
+      <h2>مقالات</h2>
+      <span class="material-symbols-outlined open-search-btn">search</span>
+    </header>
+    <div class="articles-list" id="articlesList"></div>
+  </section>
+
+  <section id="article-content-page" class="app-page">
+    <header class="page-header">
+      <span class="material-symbols-outlined back-btn" id="backToArticles">arrow_forward</span>
+      <h2 id="articleContentTitle">عنوان مقاله</h2>
+      <span class="material-symbols-outlined open-search-btn">search</span>
+    </header>
+    <div class="article-content" id="articleContent"></div>
+  </section>
+
+  <!-- ===== صفحه دوره‌ها ===== -->
+  <section id="courses-page" class="app-page">
+    <header class="page-header">
+      <span class="material-symbols-outlined back-btn" id="backToHomeFromCourses">arrow_forward</span>
+      <h2>دوره‌های آموزشی</h2>
+      <span class="material-symbols-outlined open-search-btn">search</span>
+    </header>
+    <div class="courses-wrapper" id="coursesWrapper"></div>
+  </section>
+
+  <!-- ===== صفحه جزئیات دوره ===== -->
+  <section id="course-detail-page" class="app-page">
+    <header class="page-header">
+      <span class="material-symbols-outlined back-btn" id="backToCourses">arrow_forward</span>
+      <h2 id="courseDetailTitle">نام دوره</h2>
+      <span class="material-symbols-outlined open-search-btn">search</span>
+    </header>
+    <div class="course-detail-wrapper" id="courseDetailWrapper"></div>
+  </section>
+
+  <nav class="bottom-nav">
+    <a href="#" class="nav-item" data-page="favorites">
+      <span class="material-symbols-outlined">favorite</span>
+      <span class="nav-label">علاقمندی‌ها</span>
+    </a>
+    <a href="#" class="nav-item" data-page="downloads">
+      <span class="material-symbols-outlined">download</span>
+      <span class="nav-label">دانلودها</span>
+    </a>
+    <a href="#" class="nav-item" data-page="categories">
+      <span class="material-symbols-outlined">grid_view</span>
+      <span class="nav-label">دسته‌بندی</span>
+    </a>
+    <a href="#" class="nav-item" data-page="search">
+      <span class="material-symbols-outlined">search</span>
+      <span class="nav-label">جستجو</span>
+    </a>
+    <a href="#" class="nav-item active" data-page="home">
+      <span class="material-symbols-outlined">home</span>
+      <span class="nav-label">خانه</span>
+    </a>
+  </nav>
+
+  <div class="overlay" id="overlay"></div>
+  <div class="bottom-sheet" id="categorySheet">
+    <div class="sheet-handle"></div>
+    <div class="sheet-header">
+      <h3>دسته‌بندی‌ها</h3>
+      <span class="material-symbols-outlined close-sheet" id="closeSheet">close</span>
+    </div>
+    <ul class="sheet-menu">
+      <li class="sheet-item" data-target="lessons">
+        <div class="item-icon"><span class="material-symbols-outlined">menu_book</span></div>
+        <div class="item-text">
+          <span class="item-title">دروس</span>
+          <span class="item-desc">دسترسی به تمام دروس</span>
+        </div>
+        <span class="material-symbols-outlined arrow">chevron_left</span>
+      </li>
+      <li class="sheet-item" data-target="courses">
+        <div class="item-icon"><span class="material-symbols-outlined">school</span></div>
+        <div class="item-text">
+          <span class="item-title">دوره‌ها</span>
+          <span class="item-desc">دوره‌های آموزشی کامل</span>
+        </div>
+        <span class="material-symbols-outlined arrow">chevron_left</span>
+      </li>
+      <li class="sheet-item" data-target="articles">
+        <div class="item-icon"><span class="material-symbols-outlined">article</span></div>
+        <div class="item-text">
+          <span class="item-title">مقالات</span>
+          <span class="item-desc">مطالب و مقالات آموزشی</span>
+        </div>
+        <span class="material-symbols-outlined arrow">chevron_left</span>
+      </li>
+    </ul>
+  </div>
+
+  <!-- ===== صفحه جستجو ===== -->
+  <section id="search-page" class="app-page">
+    <header class="page-header">
+      <span class="material-symbols-outlined back-btn" id="backToHomeFromSearch">arrow_forward</span>
+      <h2>جستجو</h2>
+      <span class="material-symbols-outlined" style="opacity:0;">search</span>
+    </header>
+    <div class="search-wrapper">
+      <div class="search-input-box">
+        <span class="material-symbols-outlined search-icon-left">search</span>
+        <input type="text" id="searchInput" placeholder="جستجو در دروس، دوره‌ها و مقالات..." autocomplete="off">
+        <span class="material-symbols-outlined clear-search" id="clearSearch" style="display:none;">close</span>
+      </div>
+      <div class="search-tabs" id="searchTabs">
+        <button class="search-tab active" data-tab="all">همه</button>
+        <button class="search-tab" data-tab="lessons">دروس</button>
+        <button class="search-tab" data-tab="courses">دوره‌ها</button>
+        <button class="search-tab" data-tab="articles">مقالات</button>
+      </div>
+      <div class="search-results" id="searchResults">
+        <p class="search-empty">عبارتی برای جستجو وارد کنید...</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== پلیر درجه یک ===== -->
+  <div class="player-overlay" id="playerOverlay">
+    <div class="player-container" id="playerContainer">
+
+      <!-- 👇 بنر تغییر عادت بالای پلیر 👇 -->
+      <div class="player-banner">
+        <a href="https://onlinehawzah.com/habit/" target="_blank" rel="noopener noreferrer">
+          <img src="http://dl2.onlinehawzah.com/hamed/gif/baner01.gif" alt="دوره تغییر عادت و ترک گناه">
+        </a>
+      </div>
+
+      <div class="player-header">
+        <span class="material-symbols-outlined close-player" id="closePlayer">close</span>
+        <h3 id="playerTitle">عنوان جلسه</h3>
+        <span class="material-symbols-outlined" style="opacity:0;">more_vert</span>
+      </div>
+
+      <div class="player-stage" id="playerStage">
+        <video id="videoPlayer" playsinline webkit-playsinline preload="metadata"></video>
+        <div class="audio-stage" id="audioStage">
+          <img class="audio-artwork" id="audioArtwork" alt="تصویر درس">
+          <div class="audio-bars"><span></span><span></span><span></span><span></span><span></span></div>
+        </div>
+      </div>
+
+      <div class="player-controls" id="playerControls">
+        <div class="speed-menu" id="speedMenu"></div>
+
+        <div class="progress-wrap" id="progressWrap">
+          <div class="progress-track">
+            <div class="progress-buffer" id="progressBuffer"></div>
+            <div class="progress-played" id="progressPlayed"></div>
+          </div>
+        </div>
+
+        <div class="time-row">
+          <span id="currentTime">۰۰:۰۰</span>
+          <span id="durationTime">۰۰:۰۰</span>
+        </div>
+
+        <div class="control-row">
+          <div class="ctrl-group">
+            <button class="ctrl-btn main" id="playPauseBtn" title="پخش / توقف">
+              <span class="material-symbols-outlined">play_arrow</span>
+            </button>
+            <button class="ctrl-btn" id="back10Btn" title="۱۰ ثانیه عقب">
+              <span class="material-symbols-outlined">replay_10</span>
+            </button>
+            <button class="ctrl-btn" id="forward10Btn" title="۱۰ ثانیه جلو">
+              <span class="material-symbols-outlined">forward_10</span>
+            </button>
+          </div>
+          <div class="ctrl-group">
+            <button class="ctrl-btn" id="speedBtn" title="سرعت پخش">۱×</button>
+            <button class="ctrl-btn" id="sleepBtn" title="تایمر خواب">
+              <span class="material-symbols-outlined">bedtime</span>
+            </button>
+            <button class="ctrl-btn desktop-only" id="muteBtn" title="صدا">
+              <span class="material-symbols-outlined">volume_up</span>
+            </button>
+            <button class="ctrl-btn" id="pipBtn" title="تصویر در تصویر">
+              <span class="material-symbols-outlined">picture_in_picture_alt</span>
+            </button>
+            <button class="ctrl-btn" id="fullscreenBtn" title="تمام صفحه">
+              <span class="material-symbols-outlined">fullscreen</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- ❌ بخش player-actions (دکمه دانلود) به طور کامل حذف شد -->
+
+      <div class="player-toast" id="playerToast"></div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
